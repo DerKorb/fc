@@ -36,11 +36,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "sysendian.h"
-
+#include <fc/crypto/sysendian.hpp>
 #include <fc/crypto/scrypt.hpp>
 #include <fc/crypto/kdf-sha256.hpp>
-#include "sha256.h"
 
 namespace fc 
 {
@@ -54,8 +52,8 @@ namespace fc
 	static void
 	blkcpy(void * dest, void * src, size_t len)
 	{
-		__m128i * D = dest;
-		__m128i * S = src;
+		__m128i * D = (__m128i *)dest;
+		__m128i * S = (__m128i *)src;
 		size_t L = len / 16;
 		size_t i;
 
@@ -66,8 +64,8 @@ namespace fc
 	static void
 	blkxor(void * dest, void * src, size_t len)
 	{
-		__m128i * D = dest;
-		__m128i * S = src;
+		__m128i * D = (__m128i *)dest;
+		__m128i * S = (__m128i *)src;
 		size_t L = len / 16;
 		size_t i;
 

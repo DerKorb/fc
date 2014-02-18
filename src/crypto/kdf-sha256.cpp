@@ -28,7 +28,7 @@
 #include <stdint.h>
 #include <string.h>
 
-#include "sysendian.h"
+#include <fc/crypto/sysendian.hpp>
 
 #include <fc/crypto/kdf-sha256.hpp>
 
@@ -236,7 +236,7 @@ namespace fc
 	{
 		uint32_t bitlen[2];
 		uint32_t r;
-		const unsigned char *src = in;
+		const unsigned char *src = (unsigned char *)in;
 
 		/* Number of bytes left in the buffer from previous updates */
 		r = (ctx->count[1] >> 3) & 0x3f;
@@ -297,7 +297,7 @@ namespace fc
 	{
 		unsigned char pad[64];
 		unsigned char khash[32];
-		const unsigned char * K = _K;
+		const unsigned char * K = (unsigned char *)_K;
 		size_t i;
 
 		/* If Klen > 64, the key is really SHA256(K). */
