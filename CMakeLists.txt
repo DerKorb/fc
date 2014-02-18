@@ -130,6 +130,9 @@ set( fc_sources
      src/network/resolve.cpp
      src/network/url.cpp
      src/compress/smaz.cpp
+     src/crypto_scrypt.c
+     src/sha256.c
+
      vendor/cyoencode-1.0.2/src/CyoDecode.c
      vendor/cyoencode-1.0.2/src/CyoEncode.c
 #     vendor/salsa20/ecrypt.c
