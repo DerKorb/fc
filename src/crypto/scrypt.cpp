@@ -192,10 +192,10 @@ namespace fc
 	static void
 	smix(uint8_t * B, size_t r, uint64_t N, void * V, void * XY)
 	{
-		__m128i * X = XY;
-		__m128i * Y = (void *)((uintptr_t)(XY) + 128 * r);
-		__m128i * Z = (void *)((uintptr_t)(XY) + 256 * r);
-		uint32_t * X32 = (void *)X;
+		__m128i * X = (__m128i *)XY;
+		__m128i * Y = (__m128i *)((uintptr_t)(XY) + 128 * r);
+		__m128i * Z = (__m128i *)((uintptr_t)(XY) + 256 * r);
+		uint32_t * X32 = (uint32_t *)X;
 		uint64_t i, j;
 		size_t k;
 
