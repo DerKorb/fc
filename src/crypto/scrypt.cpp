@@ -176,7 +176,7 @@ namespace fc
 	static uint64_t
 	integerify(void * B, size_t r)
 	{
-		uint32_t * X = (void *)((uintptr_t)(B) + (2 * r - 1) * 64);
+		uint32_t * X = (uint32_t *)((uintptr_t)(B) + (2 * r - 1) * 64);
 
 		return (((uint64_t)(X[13]) << 32) + X[0]);
 	}
